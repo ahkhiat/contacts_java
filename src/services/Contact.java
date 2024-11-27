@@ -1,5 +1,6 @@
 package services;
 import java.util.Scanner;
+import models.User;
 
 public class Contact {
 
@@ -15,6 +16,9 @@ public class Contact {
 
         System.out.println("Entrez son numéro de téléphone : ");
         String phone = scanner.nextLine();
+
+        User user1 = new User(firstname, lastname, phone);
+        System.out.println(user1);
 
     }
 
