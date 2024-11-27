@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
 
-import models.User;
+import models.Contact;
 
-public class Contact {
+public class ContactService {
 
-    private List<User> users;
+    private List<Contact> contacts;
 
-    public Contact() {
-        users = new ArrayList<>();
+    public ContactService() {
+        contacts = new ArrayList<>();
     }
 
     public void addContact(Scanner scanner) {
@@ -29,8 +29,8 @@ public class Contact {
         System.out.println("Entrez son numéro de téléphone : ");
         String phone = scanner.nextLine();
 
-        User user = new User(firstname, lastname, phone);
-        users.add(user);
+        Contact contact = new Contact(firstname, lastname, phone);
+        contacts.add(contact);
     }
 
     public void searchContact(Scanner scanner) {
@@ -39,9 +39,9 @@ public class Contact {
         String searchName = scanner.nextLine().toLowerCase();
 
         boolean found = false;
-        for (User user : users) {
-            if (user.getLastname().toLowerCase().contains(searchName) || user.getFirstname().toLowerCase().contains(searchName)) {
-                System.out.println(user);
+        for (Contact contact : contacts) {
+            if (contact.getLastname().toLowerCase().contains(searchName) || contact.getFirstname().toLowerCase().contains(searchName)) {
+                System.out.println(contact);
                 found = true;
             }
         }
@@ -62,26 +62,28 @@ public class Contact {
         String choice = scanner.nextLine();
 
         if (choice.equals("1")) {
-            Collections.sort(users, new Comparator<User>() {
+            // Tri croissant
+            Collections.sort(contacts, new Comparator<Contact>() {
                 @Override
-                public int compare(User user1, User user2) {
-                    return user1.getLastname().compareTo(user2.getLastname());
+                public int compare(Contact contact1, Contact contact2) {
+                    return contact1.getLastname().compareTo(contact2.getLastname());
                 }
             });
         }
         else if (choice.equals("2")) {
-            Collections.sort(users, new Comparator<User>() {
+            // Tri décroissant
+            Collections.sort(contacts, new Comparator<Contact>() {
                 @Override
-                public int compare(User user1, User user2) {
-                    return user2.getLastname().compareTo(user1.getLastname()); // Tri par nom inverse
+                public int compare(Contact contact1, Contact contact2) {
+                    return contact2.getLastname().compareTo(contact1.getLastname());
                 }
             });
         }
         else {
             System.out.println("Veuillez taper 1 ou 2");
         }
-        for (User user : users) {
-            System.out.println(user);
+        for (Contact contact : contacts) {
+            System.out.println(contact);
         }
         System.out.println();
     }

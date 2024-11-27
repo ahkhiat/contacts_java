@@ -1,12 +1,12 @@
 package models;
 
-public class User {
+public class Contact {
 
     private String lastname;
     private String firstname;
     private String phone;
 
-    public User(String firstname, String lastname, String phone) {
+    public Contact(String firstname, String lastname, String phone) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.phone = phone;
