@@ -14,33 +14,16 @@ public class User {
 
     @Override
     public String toString() {
-        return "Nom : " + lastname + ", Prénom : " + firstname + ", Téléphone : " + phone;
+        String capitalizedFirstname = firstname.substring(0,1).toUpperCase() + firstname.substring(1).toLowerCase();
+        return  "-> " + capitalizedFirstname + " " + lastname.toUpperCase() + " : " + phone;
     }
 
     public String getLastname() {
         return lastname;
     }
-//
-//    public void setLastname(String lastname) {
-//        this.lastname = lastname;
-//    }
-//
-//    public String getFirstname() {
-//        return firstname;
-//    }
-//
-//    public void setFirstname(String firstname) {
-//        this.firstname = firstname;
-//    }
-//
-//    public String getPhone() {
-//        return phone;
-//    }
-//
-//    public void setPhone(String phone) {
-//        this.phone = phone;
-//    }
 
-
+    public String getFirstname() {
+        return firstname;
+    }
 
 }

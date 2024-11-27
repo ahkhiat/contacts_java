@@ -18,14 +18,50 @@ public class Main {
             System.out.println(":");
             String choice = scanner.nextLine();
 
+            // Ajouter un contact
             if(choice.equals("1")) {
-                contactManager.addContact(scanner);
+                boolean runAddContact = true;
+
+                while (runAddContact) {
+                    contactManager.addContact(scanner);
+                    System.out.println("1 -> Entrer un nouveau contact");
+                    System.out.println("2 -> Revenir au menu principal");
+                    String continueAdd = scanner.nextLine();
+
+                    if (!continueAdd.equals("1")){
+                        runAddContact = false;
+                    }
+                }
             }
+            // Rechercher un contact
             else if(choice.equals("2")) {
-                contactManager.searchContact(scanner);
+                boolean runSearchContact = true;
+
+                while (runSearchContact) {
+                    contactManager.searchContact(scanner);
+                    System.out.println("1 -> Rechercher un nouveau contact");
+                    System.out.println("2 -> Revenir au menu principal");
+                    String continueSearch = scanner.nextLine();
+
+                    if (!continueSearch.equals("1")){
+                        runSearchContact = false;
+                    }
+                }
             }
+            // Afficher tous les contacts
             else if(choice.equals("3")) {
-                contactManager.displayALlContacts();
+                boolean runDisplayAllContacts = true;
+
+                while (runDisplayAllContacts) {
+                    contactManager.displayALlContacts(scanner);
+                    System.out.println("1 -> Lister les contacts à nouveau");
+                    System.out.println("2 -> Revenir au menu principal");
+                    String continueDisplay = scanner.nextLine();
+
+                    if (!continueDisplay.equals("1")) {
+                        runDisplayAllContacts = false;
+                    }
+                }
             }
             else if(choice.equals("4")) {
                 running = false;
