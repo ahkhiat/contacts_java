@@ -8,6 +8,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         Home displayHome = new Home();
+        Contact contactManager = new Contact();
+
         boolean running = true;
 
         while(running) {
@@ -17,16 +19,13 @@ public class Main {
             String choice = scanner.nextLine();
 
             if(choice.equals("1")) {
-                Contact addContact = new Contact();
-                addContact.addContact(scanner);
+                contactManager.addContact(scanner);
             }
             else if(choice.equals("2")) {
-                Contact addContact = new Contact();
-                addContact.searchContact();
+                contactManager.searchContact(scanner);
             }
             else if(choice.equals("3")) {
-                Contact addContact = new Contact();
-                addContact.displayALlContacts();
+                contactManager.displayALlContacts();
             }
             else if(choice.equals("4")) {
                 running = false;

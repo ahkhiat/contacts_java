@@ -17,9 +17,9 @@ public class User {
         return "Nom : " + lastname + ", Prénom : " + firstname + ", Téléphone : " + phone;
     }
 
-//    public String getLastname() {
-//        return lastname;
-//    }
+    public String getLastname() {
+        return lastname;
+    }
 //
 //    public void setLastname(String lastname) {
 //        this.lastname = lastname;
